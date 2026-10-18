@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulado 1 – 2ª série EM – The world of work</title>
+<style>
+:root{--bg:#f3f6fa;--card:#fff;--ink:#1d2733;--muted:#5b6775;--brand:#1f618d;--brand2:#154360;--ok:#1e8449;--okbg:#e9f7ef;--bad:#c0392b;--badbg:#fdedec;--line:#d7dee6;--note:#fff8e1}
+*{box-sizing:border-box}
+button,input{font-family:inherit}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:18px;line-height:1.5}
+header{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:18px 16px 16px}
+header .wrap{max-width:760px;margin:0 auto}
+header h1{margin:0;font-size:1.3rem;line-height:1.25}
+header .credit{margin-top:4px;font-size:.85rem;opacity:.9}
+main{max-width:760px;margin:0 auto;padding:16px}
+.card{background:var(--card);border-radius:14px;box-shadow:0 2px 10px rgba(20,40,70,.08);padding:18px;margin-bottom:16px}
+h2{font-size:1.15rem;margin:0 0 10px;color:var(--brand2)}
+label{display:block;font-weight:600;margin:12px 0 6px}
+input[type=text]{width:100%;font-size:1.05rem;padding:14px;border:2px solid var(--line);border-radius:10px}
+input[type=text]:focus{outline:none;border-color:var(--brand)}
+ul.instr{padding-left:22px;margin:6px 0}
+ul.instr li{margin:4px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 20px;font-size:1.05rem;font-weight:700;border-radius:12px;border:0;background:var(--brand);color:#fff;cursor:pointer}
+.btn:hover{background:var(--brand2)}
+.btn.sec{background:#e4ebf2;color:var(--brand2)}
+.btn.sec:hover{background:#d3dee9}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.row .btn{flex:1 1 140px}
+.progress{display:flex;justify-content:space-between;align-items:center;font-size:.95rem;color:var(--muted);margin-bottom:8px}
+.bar{height:10px;background:#dfe6ee;border-radius:6px;overflow:hidden;margin-bottom:14px}
+.bar>div{height:100%;background:var(--brand);width:0;transition:width .3s}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--brand2);background:#e4ebf2;border-radius:999px;padding:3px 10px;margin-bottom:8px}
+.text{background:#f7f9fc;border-left:5px solid var(--brand);border-radius:8px;padding:12px 14px;margin:6px 0 14px;white-space:pre-line;font-size:1rem}
+.text .tt{display:block;font-weight:700;color:var(--brand2);margin-bottom:6px;white-space:normal}
+.stem{font-weight:600;margin:0 0 12px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;min-height:56px;padding:12px 14px;font-size:1rem;line-height:1.4;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--brand);background:#f4f8fc}
+.opt .l{flex:0 0 32px;height:32px;border-radius:50%;background:#e4ebf2;color:var(--brand2);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okbg)}
+.opt.right .l{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.opt.wrong .l{background:var(--bad);color:#fff}
+.fb{margin-top:14px;border-radius:12px;padding:14px;font-size:1rem}
+.fb.ok{background:var(--okbg);border:2px solid var(--ok)}
+.fb.bad{background:var(--badbg);border:2px solid var(--bad)}
+.fb strong{display:block;margin-bottom:4px}
+.fb .copy{margin-top:10px;background:var(--note);border:1px dashed #c9a227;border-radius:8px;padding:8px 10px;font-weight:700}
+.score{font-size:2.4rem;font-weight:800;color:var(--brand2);margin:4px 0}
+.copylist{background:var(--note);border:1px dashed #c9a227;border-radius:10px;padding:12px 14px;white-space:pre-line;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:8px;margin-top:10px}
+.grid button{min-height:46px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;font-size:1rem;cursor:pointer;color:var(--ink)}
+.grid button.r{background:var(--okbg);border-color:var(--ok)}
+.grid button.w{background:var(--badbg);border-color:var(--bad)}
+.grid button.cur{outline:3px solid var(--brand)}
+.muted{color:var(--muted);font-size:.9rem}
+.hidden{display:none}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 16px 28px}
+@media (min-width:900px){body{font-size:19px}header h1{font-size:1.6rem}main{padding:24px}.card{padding:26px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Simulado 1 – 2ª série EM – The world of work</h1><div class="credit">Prof. Augusto · Língua Inglesa · 4º bimestre 2026 · Semana 1</div></div></header>
+<main>
+<section id="start" class="card">
+<h2>Instruções</h2>
+<ul class="instr">
+<li>São <strong>30 questões</strong> de múltipla escolha (A a E), como no ENEM.</li>
+<li>Leia o texto com atenção antes de responder. Use as dicas de leitura: cognatos, palavras conhecidas e contexto.</li>
+<li>Ao tocar em uma alternativa, a resposta fica <strong>travada</strong>: não dá para mudar.</li>
+<li>Se errar, aparece a resposta correta com uma explicação. <strong>Copie no caderno</strong> cada questão que errar (tarefa).</li>
+<li>Seu progresso fica salvo neste aparelho. Pode fechar e continuar depois.</li>
+</ul>
+<label for="nome">Nome completo</label>
+<input type="text" id="nome" autocomplete="name" placeholder="Digite seu nome">
+<label for="turma">Turma</label>
+<input type="text" id="turma" placeholder="Ex.: 2º A">
+<p id="startMsg" class="muted"></p>
+<div class="row"><button class="btn" id="btnStart">Começar</button></div>
+</section>
+
+<section id="quiz" class="hidden">
+<div class="card">
+<div class="progress"><span id="pLabel">Questão 1 de 30</span><span id="pDone">0 respondidas</span></div>
+<div class="bar"><div id="pBar"></div></div>
+<span class="tag" id="qType"></span>
+<div class="text" id="qText"></div>
+<p class="stem" id="qStem"></p>
+<div class="opts" id="qOpts"></div>
+<div id="qFb"></div>
+<div class="row">
+<button class="btn sec" id="btnPrev">Anterior</button>
+<button class="btn" id="btnNext">Próxima</button>
+</div>
+</div>
+<div class="card">
+<h2>Ir para a questão</h2>
+<div class="grid" id="grid"></div>
+<div class="row"><button class="btn sec" id="btnFinish">Ver resultado</button></div>
+<p class="muted" id="finishMsg"></p>
+</div>
+</section>
+
+<section id="result" class="hidden">
+<div class="card">
+<h2>Resultado</h2>
+<div id="rWho" class="muted"></div>
+<div class="score" id="rScore"></div>
+<div id="rMsg"></div>
+</div>
+<div class="card" id="rWrongCard">
+<h2>Tarefa: copie no caderno</h2>
+<p class="muted">Copie cada questão que você errou, com a resposta correta e a explicação.</p>
+<div class="copylist" id="rWrong"></div>
+</div>
+<div class="card">
+<div class="row">
+<button class="btn sec" id="btnReview">Revisar questões</button>
+<button class="btn" id="btnRedo">Refazer</button>
+</div>
+<div class="row"><button class="btn sec" id="btnNew">Novo aluno (limpar tudo)</button></div>
+</div>
+</section>
+</main>
+<footer>Simulado 1 · funciona off-line · progresso salvo apenas neste navegador</footer>
+<script>
+const DATA = {"texts": {"T1": {"title": "Texto 1 – Anúncio de emprego", "body": "PART-TIME BARISTA WANTED\nCafé Aroma – Vila Mariana, São Paulo\n\nAre you friendly, organized and 16 or older? Join our team!\n• Shifts: Saturdays and Sundays, 8 a.m. to 2 p.m.\n• No experience needed – we offer free training.\n• Benefits: meal, transportation card and flexible schedule during exam weeks.\n\nSend your résumé to jobs@cafearoma.example by November 15th."}, "T2": {"title": "Texto 2 – Postagem em rede profissional", "body": "Lucas Ferreira · Student | Young Apprentice\n\nThree months ago, I started my first job as an apprentice at a logistics company. I was so nervous! Before that day, I had never worn a uniform, and I had never used a spreadsheet. But my supervisor was patient. By the end of the first month, I had learned the basics of Excel and I had made new friends.\n\nMy advice: don't wait to feel 100% ready. Nobody is!\n#FirstJob #YoungApprentice #WorldOfWork"}, "T3": {"title": "Texto 3 – Tirinha (diálogo)", "body": "Quadrinho 1 – MOM: Did you apply for the summer internship, Bia?\nQuadrinho 2 – BIA: Yes! Well... almost. I opened the website at 11:59 p.m.\nQuadrinho 3 – MOM: And?\nQuadrinho 4 – BIA: By the time I clicked \"send\", the deadline had passed. The website had closed at midnight!\nQuadrinho 5 – MOM: Next time, plan ahead, dear."}, "T4": {"title": "Texto 4 – Notícia curta", "body": "STUDENTS SHARE FIRST WORK EXPERIENCES\n\nSão Paulo – At a public school in the East Zone, 2nd-year students organized a \"Work Fair\" last week. Before the event, they had interviewed 120 young workers from the neighborhood. The results surprised them: 45% of the interviewees had started working before they turned 17, and most of them had found their jobs through friends or family, not online.\n\n\"I had expected social media to be the main way to find a job,\" said Rafaela, 16. \"Actually, personal contacts were more important.\" The students now plan to create a job board for the community."}, "T5": {"title": "Texto 5 – Infográfico (descrito em texto)", "body": "WHAT DO TEENS WANT IN THEIR FIRST JOB?\nSurvey with 500 high school students (fictional data)\n\n• Flexible hours ............ 38%\n• Good salary ............... 27%\n• Learning new skills ....... 20%\n• Friendly team ............. 10%\n• Other ....................... 5%\n\nTip: Employers say that young candidates who had done volunteer work before had more chances in interviews."}, "T6": {"title": "Texto 6 – E-mail", "body": "From: hr@techstart.example\nTo: marina.souza@email.example\nSubject: Interview – Junior Assistant\n\nDear Marina,\nThank you for your application. We have read your résumé and we would like to invite you to an interview on Tuesday, November 10th, at 3 p.m. Please bring an ID and your school certificate.\nIf you can't come, please let us know by Monday.\n\nBest regards,\nPaula Lima – Human Resources"}, "T7": {"title": "Texto 7 – Narrativa curta", "body": "ANA'S FIRST DAY\n\nAna's alarm didn't ring on her first day at the supermarket. When she finally arrived, the team meeting had already started. Her manager smiled and said, \"Don't worry. Everybody gets nervous on the first day.\" Ana apologized. She hadn't slept well because she had stayed up late preparing questions about the job. At the end of the day, she realized that the job was easier than she had imagined."}, "T8": {"title": "Texto 8 – Cartaz", "body": "5 SOFT SKILLS EMPLOYERS LOVE\n\n1. Communication – listen and speak clearly.\n2. Teamwork – help your colleagues.\n3. Punctuality – be on time!\n4. Problem-solving – find solutions, not excuses.\n5. Responsibility – finish what you start."}, "T9": {"title": "Texto 9 – Perfil", "body": "Pedro, 17, edits videos for small businesses in his city. Before he became a freelancer, he had watched hundreds of free tutorials online. \"At first, my income was irregular. Some months I earned almost nothing,\" he says. Today he has six regular clients. \"Freelancing gives me freedom, but I have to be organized.\""}, "G": {"title": "Uso da língua – past perfect", "body": ""}}, "questions": [{"n": 1, "text": "T1", "type": "Compreensão geral", "stem": "O texto tem como principal objetivo", "options": ["divulgar um curso de preparo de café.", "oferecer uma vaga de trabalho de meio período em uma cafeteria.", "anunciar a inauguração de uma nova cafeteria.", "convidar clientes para uma promoção de fim de semana.", "apresentar uma receita de café especial."], "answer": 1, "explanation": "É um anúncio de emprego: o título \"PART-TIME BARISTA WANTED\" significa \"Procura-se barista de meio período\"."}, {"n": 2, "text": "T1", "type": "Informação específica", "stem": "De acordo com o anúncio, os candidatos", "options": ["precisam ter experiência como barista.", "devem ter pelo menos 18 anos.", "trabalharão de segunda a sexta-feira.", "receberão treinamento gratuito.", "devem entregar o currículo pessoalmente."], "answer": 3, "explanation": "O anúncio diz \"No experience needed – we offer free training\" (não é preciso experiência; oferecemos treinamento gratuito)."}, {"n": 3, "text": "T1", "type": "Vocabulário em contexto", "stem": "No trecho \"Shifts: Saturdays and Sundays, 8 a.m. to 2 p.m.\", a palavra \"shifts\" refere-se a", "options": ["salários.", "uniformes.", "turnos de trabalho.", "intervalos para almoço.", "tarefas da cozinha."], "answer": 2, "explanation": "\"Shift\" é turno: o trecho informa os dias e horários em que o funcionário vai trabalhar."}, {"n": 4, "text": "T2", "type": "Compreensão geral", "stem": "Na postagem, Lucas tem a intenção de", "options": ["compartilhar sua experiência no primeiro emprego e encorajar outros jovens.", "reclamar do comportamento de seu supervisor.", "anunciar vagas de jovem aprendiz na empresa.", "explicar por que pediu demissão.", "vender um curso de Excel para iniciantes."], "answer": 0, "explanation": "Lucas conta como foi o começo no trabalho e termina com um conselho: \"don't wait to feel 100% ready\"."}, {"n": 5, "text": "T2", "type": "Past perfect", "stem": "No trecho \"Before that day, I had never worn a uniform\", o uso de \"had never worn\" indica que", "options": ["Lucas costuma usar uniforme todos os dias.", "Lucas vai usar um uniforme no futuro.", "Lucas usou uniforme durante toda a escola.", "Lucas não gosta de usar uniforme.", "até aquele dia, Lucas nunca tinha usado um uniforme."], "answer": 4, "explanation": "O past perfect (had + particípio) fala de algo anterior a outro momento do passado: antes do primeiro dia de trabalho, ele nunca tinha usado uniforme."}, {"n": 6, "text": "T2", "type": "Inferência", "stem": "Pela frase \"Don't wait to feel 100% ready. Nobody is!\", infere-se que Lucas acredita que", "options": ["só quem domina Excel deve procurar emprego.", "a insegurança no começo é normal e não deve impedir ninguém de tentar.", "os jovens devem terminar a faculdade antes de trabalhar.", "os supervisores não gostam de aprendizes.", "é melhor não trabalhar enquanto se estuda."], "answer": 1, "explanation": "\"Nobody is (100% ready)\" = ninguém está totalmente pronto. Ele sugere que sentir insegurança é normal."}, {"n": 7, "text": "T2", "type": "Informação específica", "stem": "Segundo a postagem, ao fim do primeiro mês, Lucas", "options": ["ainda não tinha usado nenhuma planilha.", "tinha sido promovido a supervisor.", "já tinha aprendido o básico de Excel e feito novos amigos.", "tinha decidido deixar a empresa.", "tinha comprado um uniforme novo."], "answer": 2, "explanation": "\"By the end of the first month, I had learned the basics of Excel and I had made new friends.\""}, {"n": 8, "text": "T3", "type": "Inferência", "stem": "O humor da tirinha está no fato de que Bia", "options": ["deixou a inscrição para o último minuto e perdeu o prazo.", "não sabia usar o computador.", "não queria fazer o estágio.", "enviou a inscrição dias antes do prazo.", "esqueceu a senha do site."], "answer": 0, "explanation": "Ela abriu o site às 23h59 e, quando clicou em enviar, o prazo já tinha acabado (o site fechou à meia-noite)."}, {"n": 9, "text": "T3", "type": "Past perfect", "stem": "Na fala \"By the time I clicked 'send', the deadline had passed\", a ação que aconteceu PRIMEIRO foi", "options": ["Bia clicar em \"send\".", "a mãe dar o conselho \"plan ahead\".", "Bia conseguir a vaga de estágio.", "o prazo terminar.", "a mãe perguntar sobre a inscrição."], "answer": 3, "explanation": "O past perfect (had passed) marca a ação mais antiga: primeiro o prazo acabou, depois Bia clicou em \"send\"."}, {"n": 10, "text": "T3", "type": "Vocabulário em contexto", "stem": "A expressão \"plan ahead\", no último quadrinho, pode ser traduzida como", "options": ["planejar em grupo.", "desistir do plano.", "seguir em frente sem plano.", "mudar de plano.", "planejar com antecedência."], "answer": 4, "explanation": "\"Ahead\" = adiante, antes. A mãe aconselha Bia a se organizar antes do prazo."}, {"n": 11, "text": "T4", "type": "Compreensão geral", "stem": "A notícia relata principalmente", "options": ["a abertura de uma nova empresa na Zona Leste.", "uma nova lei sobre o trabalho de adolescentes.", "a demissão de jovens trabalhadores do bairro.", "uma pesquisa feita por estudantes sobre as experiências de trabalho de jovens do bairro.", "um curso on-line para encontrar emprego."], "answer": 3, "explanation": "Os alunos entrevistaram 120 jovens trabalhadores e apresentaram os resultados na \"Work Fair\"."}, {"n": 12, "text": "T4", "type": "Informação específica", "stem": "Segundo a notícia, a maioria dos entrevistados", "options": ["encontrou trabalho pelas redes sociais.", "conseguiu o emprego por meio de amigos ou familiares.", "começou a trabalhar depois dos 20 anos.", "trabalha na própria escola.", "nunca tinha trabalhado antes da pesquisa."], "answer": 1, "explanation": "\"most of them had found their jobs through friends or family, not online\"."}, {"n": 13, "text": "T4", "type": "Cognatos e falsos cognatos", "stem": "Na fala de Rafaela, a palavra \"Actually\" significa", "options": ["atualmente.", "finalmente.", "geralmente.", "rapidamente.", "na verdade."], "answer": 4, "explanation": "\"Actually\" é falso cognato: significa \"na verdade\", e não \"atualmente\" (que em inglês é \"nowadays\" ou \"currently\")."}, {"n": 14, "text": "T4", "type": "Inferência", "stem": "Em \"I had expected social media to be the main way to find a job\", Rafaela revela que", "options": ["antes da pesquisa, ela esperava um resultado diferente do que foi encontrado.", "ela encontrou emprego pelas redes sociais.", "ela nunca usou redes sociais.", "a pesquisa confirmou o que ela esperava.", "ela vai procurar emprego no ano que vem."], "answer": 0, "explanation": "\"I had expected\" = eu tinha esperado/imaginado (antes). Em seguida ela diz \"Actually, personal contacts were more important\": o resultado foi outro."}, {"n": 15, "text": "T5", "type": "Informação específica", "stem": "De acordo com o infográfico, o fator mais valorizado pelos estudantes no primeiro emprego é", "options": ["ter um bom salário.", "aprender novas habilidades.", "ter horários flexíveis.", "ter uma equipe amigável.", "fazer trabalho voluntário."], "answer": 2, "explanation": "\"Flexible hours\" tem a maior porcentagem: 38%."}, {"n": 16, "text": "T5", "type": "Informação específica", "stem": "O infográfico mostra que a opção \"Good salary\"", "options": ["foi escolhida por pouco mais de um quarto dos estudantes.", "foi a opção menos escolhida.", "foi escolhida pela maioria dos estudantes.", "empatou com \"Flexible hours\".", "não apareceu na pesquisa."], "answer": 0, "explanation": "27% é um pouco mais que 25% (um quarto). É a segunda opção mais escolhida."}, {"n": 17, "text": "T5", "type": "Inferência", "stem": "Segundo a dica do infográfico, os candidatos jovens tinham mais chances nas entrevistas quando", "options": ["pediam salários mais altos.", "chegavam atrasados à entrevista.", "nunca tinham trabalhado.", "tinham mais de 18 anos.", "já tinham feito trabalho voluntário antes."], "answer": 4, "explanation": "\"young candidates who had done volunteer work before had more chances\": quem já tinha feito voluntariado se saía melhor."}, {"n": 18, "text": "T6", "type": "Compreensão geral", "stem": "O e-mail foi enviado com o objetivo de", "options": ["recusar a candidatura de Marina.", "pedir que Marina envie seu currículo.", "informar o salário do cargo.", "convidar Marina para uma entrevista de emprego.", "confirmar a contratação de Marina."], "answer": 3, "explanation": "\"we would like to invite you to an interview\" = gostaríamos de convidá-la para uma entrevista."}, {"n": 19, "text": "T6", "type": "Informação específica", "stem": "Marina deve avisar a empresa até segunda-feira caso", "options": ["queira negociar o salário.", "não possa comparecer à entrevista.", "esqueça o documento de identidade.", "precise de um uniforme.", "aceite a vaga."], "answer": 1, "explanation": "\"If you can't come, please let us know by Monday\" = se não puder vir, avise-nos até segunda."}, {"n": 20, "text": "T6", "type": "Cognatos e falsos cognatos", "stem": "No e-mail, a palavra \"application\" significa", "options": ["aplicativo de celular.", "investimento financeiro.", "candidatura.", "aula particular.", "anúncio de emprego."], "answer": 2, "explanation": "Em contextos de trabalho, \"application\" é a candidatura (o pedido de emprego). \"Aplicativo\" seria \"app\"."}, {"n": 21, "text": "T7", "type": "Past perfect", "stem": "De acordo com o texto, quando Ana chegou, a reunião da equipe", "options": ["ainda não tinha começado.", "foi cancelada.", "começou logo depois.", "terminou mais cedo.", "já tinha começado."], "answer": 4, "explanation": "\"When she finally arrived, the team meeting had already started\": had already started = já tinha começado."}, {"n": 22, "text": "T7", "type": "Past perfect", "stem": "Por que Ana não tinha dormido bem?", "options": ["Porque tinha ficado acordada até tarde preparando perguntas sobre o trabalho.", "Porque o despertador tocou cedo demais.", "Porque estava doente.", "Porque tinha trabalhado à noite.", "Porque o gerente ligou para ela de madrugada."], "answer": 0, "explanation": "\"She hadn't slept well because she had stayed up late preparing questions\": as duas ações aconteceram antes da chegada ao trabalho."}, {"n": 23, "text": "T7", "type": "Cognatos e falsos cognatos", "stem": "Em \"she realized that the job was easier than she had imagined\", o verbo \"realized\" significa", "options": ["realizou.", "reclamou.", "decidiu.", "percebeu.", "esqueceu."], "answer": 3, "explanation": "\"Realize\" é falso cognato: significa \"perceber, dar-se conta\". \"Realizar\" (fazer) é \"carry out\" ou \"achieve\"."}, {"n": 24, "text": "T8", "type": "Vocabulário em contexto", "stem": "No cartaz, a palavra \"colleagues\" significa", "options": ["colégios.", "colegas de trabalho.", "clientes.", "chefes.", "concorrentes."], "answer": 1, "explanation": "\"Colleagues\" são os colegas de trabalho. Não confunda com \"colégio\" (school)."}, {"n": 25, "text": "T8", "type": "Inferência", "stem": "A dica \"find solutions, not excuses\" recomenda que o trabalhador", "options": ["peça desculpas sempre que errar.", "evite trabalhar em equipe.", "procure resolver os problemas em vez de se justificar.", "chegue mais cedo ao trabalho.", "fale pouco com os colegas."], "answer": 2, "explanation": "\"Excuses\" = desculpas, justificativas. A dica é focar na solução, não na justificativa."}, {"n": 26, "text": "T9", "type": "Vocabulário em contexto", "stem": "Na fala de Pedro, a palavra \"income\" significa", "options": ["despesa.", "dívida.", "imposto.", "renda.", "cliente."], "answer": 3, "explanation": "\"Income\" é o dinheiro que se recebe (renda). A frase seguinte confirma: \"Some months I earned almost nothing\"."}, {"n": 27, "text": "T9", "type": "Inferência", "stem": "De acordo com Pedro, trabalhar como freelancer", "options": ["traz liberdade, mas exige organização.", "garante renda fixa desde o início.", "não exige nenhum estudo prévio.", "só é possível para adultos.", "dispensa clientes regulares."], "answer": 0, "explanation": "\"Freelancing gives me freedom, but I have to be organized.\" Ele também diz que a renda era irregular no começo e que estudou com tutoriais."}, {"n": 28, "text": "G", "type": "Past perfect", "stem": "Leia: \"When the store opened at 9 a.m., the employees ______ all the shelves.\" Assinale a forma verbal que indica uma ação ANTERIOR à abertura da loja.", "options": ["organize", "are organizing", "will organize", "organizes", "had organized"], "answer": 4, "explanation": "Para indicar uma ação concluída antes de outra no passado (a loja abriu), usamos had + particípio: had organized."}, {"n": 29, "text": "G", "type": "Past perfect", "stem": "Assinale a frase em que o past perfect está usado corretamente.", "options": ["Yesterday I had go to work by bus.", "By the time Carla arrived at the interview, the other candidates had left.", "She had works at a bakery last year.", "Tomorrow we had finished the project.", "They has had a meeting before lunch."], "answer": 1, "explanation": "Forma correta: had + particípio (had left). Nas outras há erros: \"had go\", \"had works\", \"tomorrow\" com past perfect e \"has had\" no lugar de \"had had\"."}, {"n": 30, "text": "G", "type": "Past perfect", "stem": "Leia: \"João got the job because he had taken an English course.\" A frase indica que", "options": ["João fará o curso depois de ser contratado.", "João conseguiu o emprego e depois fez o curso.", "João fez o curso de inglês antes de conseguir o emprego.", "João não fez nenhum curso.", "João está fazendo o curso agora."], "answer": 2, "explanation": "\"had taken\" (past perfect) marca a ação anterior: primeiro o curso, depois o emprego (got the job)."}]};
+const KEY = "simulado1-2em-world-of-work-v1";
+const L = "ABCDE";
+const Qs = DATA.questions, N = Qs.length;
+let st = load();
+function blank(){return {nome:"",turma:"",answers:{},cur:0,started:false,finished:false};}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.answers)return Object.assign(blank(),s);}catch(e){}return blank();}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+const $=id=>document.getElementById(id);
+function show(id){["start","quiz","result"].forEach(s=>$(s).classList.toggle("hidden",s!==id));window.scrollTo(0,0);}
+function answered(){return Object.keys(st.answers).length;}
+function correctCount(){return Qs.reduce((a,q,i)=>a+(st.answers[i]===q.answer?1:0),0);}
+function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+
+function initStart(){
+  $("nome").value=st.nome;$("turma").value=st.turma;
+  if(st.started){$("btnStart").textContent=answered()<N?"Continuar ("+answered()+"/"+N+")":"Ver resultado";}
+}
+$("btnStart").onclick=()=>{
+  const n=$("nome").value.trim(),t=$("turma").value.trim();
+  if(!n||!t){$("startMsg").textContent="Preencha seu nome e sua turma para começar.";$("startMsg").style.color="#c0392b";return;}
+  st.nome=n;st.turma=t;st.started=true;save();
+  if(st.finished){renderResult();show("result");}else{renderQ();show("quiz");}
+};
+
+function renderQ(){
+  const i=st.cur,q=Qs[i],t=DATA.texts[q.text];
+  $("pLabel").textContent="Questão "+(i+1)+" de "+N;
+  $("pDone").textContent=answered()+(answered()===1?" respondida":" respondidas");
+  $("pBar").style.width=(answered()/N*100)+"%";
+  $("qType").textContent=q.type;
+  const tx=$("qText");tx.innerHTML="";
+  if(t.body){tx.classList.remove("hidden");tx.appendChild(el("span","tt",t.title));tx.appendChild(document.createTextNode(t.body));}
+  else tx.classList.add("hidden");
+  $("qStem").textContent=(i+1)+". "+q.stem;
+  const box=$("qOpts");box.innerHTML="";
+  const chosen=st.answers[i];
+  q.options.forEach((o,k)=>{
+    const b=el("button","opt");b.type="button";
+    b.appendChild(el("span","l",L[k]));b.appendChild(el("span",null,o));
+    if(chosen!==undefined){b.disabled=true;if(k===q.answer)b.classList.add("right");else if(k===chosen)b.classList.add("wrong");}
+    b.onclick=()=>choose(k);
+    box.appendChild(b);
+  });
+  const fb=$("qFb");fb.innerHTML="";
+  if(chosen!==undefined){
+    if(chosen===q.answer){const d=el("div","fb ok");d.appendChild(el("strong",null,"Correto!"));d.appendChild(el("span",null,q.explanation));fb.appendChild(d);}
+    else{const d=el("div","fb bad");d.appendChild(el("strong",null,"Resposta incorreta. A correta é a letra "+L[q.answer]+": "+q.options[q.answer]));d.appendChild(el("span",null,q.explanation));d.appendChild(el("div","copy","Copie esta questão no caderno (tarefa)."));fb.appendChild(d);}
+  }
+  $("btnPrev").disabled=i===0;
+  $("btnNext").textContent=i===N-1?"Ver resultado":"Próxima";
+  renderGrid();
+}
+function choose(k){
+  if(st.answers[st.cur]!==undefined)return;
+  st.answers[st.cur]=k;save();renderQ();
+  $("qFb").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+function renderGrid(){
+  const g=$("grid");g.innerHTML="";
+  Qs.forEach((q,i)=>{const b=el("button",null,String(i+1));b.type="button";
+    const a=st.answers[i];if(a!==undefined)b.classList.add(a===q.answer?"r":"w");
+    if(i===st.cur)b.classList.add("cur");
+    b.setAttribute("aria-label","Questão "+(i+1));
+    b.onclick=()=>{st.cur=i;save();renderQ();window.scrollTo(0,0);};g.appendChild(b);});
+}
+$("btnPrev").onclick=()=>{if(st.cur>0){st.cur--;save();renderQ();window.scrollTo(0,0);}};
+$("btnNext").onclick=()=>{if(st.cur<N-1){st.cur++;save();renderQ();window.scrollTo(0,0);}else finish();};
+$("btnFinish").onclick=finish;
+function finish(){
+  const left=N-answered();
+  if(left>0){const nx=Qs.findIndex((q,i)=>st.answers[i]===undefined);
+    $("finishMsg").textContent="Ainda faltam "+left+" questões. Indo para a questão "+(nx+1)+".";
+    st.cur=nx;save();renderQ();window.scrollTo(0,0);return;}
+  st.finished=true;save();renderResult();show("result");
+}
+function renderResult(){
+  const c=correctCount(),p=Math.round(c/N*100);
+  const d=new Date();
+  $("rWho").textContent=st.nome+" · "+st.turma+" · "+d.toLocaleDateString("pt-BR");
+  $("rScore").textContent=c+" / "+N+"  ("+p+"%)";
+  $("rMsg").textContent=p>=80?"Excelente! Você mandou muito bem.":p>=60?"Bom trabalho! Revise as questões que errou.":"Continue praticando: copie as questões erradas e revise com calma.";
+  const wrong=Qs.map((q,i)=>i).filter(i=>st.answers[i]!==Qs[i].answer);
+  if(!wrong.length){$("rWrong").textContent="Você não errou nenhuma questão. Parabéns!";}
+  else{
+    let s="Simulado 1 – The world of work – "+st.nome+" ("+st.turma+")\nQuestões erradas: "+wrong.map(i=>i+1).join(", ")+"\n\n";
+    wrong.forEach(i=>{const q=Qs[i];s+="Questão "+(i+1)+" – Resposta correta: "+L[q.answer]+") "+q.options[q.answer]+"\nPor quê: "+q.explanation+"\n\n";});
+    $("rWrong").textContent=s.trim();
+  }
+}
+$("btnReview").onclick=()=>{st.cur=0;save();renderQ();show("quiz");};
+$("btnRedo").onclick=()=>{
+  if(!confirm("Refazer o simulado? Suas respostas serão apagadas (nome e turma ficam salvos)."))return;
+  const n=st.nome,t=st.turma;st=blank();st.nome=n;st.turma=t;st.started=true;save();renderQ();show("quiz");
+};
+$("btnNew").onclick=()=>{
+  if(!confirm("Começar com outro aluno? Nome, turma e respostas deste aparelho serão apagados."))return;
+  st=blank();save();initStart();$("btnStart").textContent="Começar";show("start");
+};
+initStart();
+if(st.started&&st.nome){ if(st.finished){renderResult();show("result");} else {renderQ();show("quiz");} }
+</script>
+</body>
+</html>
